@@ -58,3 +58,13 @@ def approve_all_pending():
     cursor.connection.commit()
     cursor.close()
     connection.close()
+
+# Новая функция для проверки сколько Мемов отправил пользователь
+def count_user_memes_today(user_id):
+    connection = sqlite3.connect('russian_memes.db')
+    cursor = connection.cursor()
+    cursor.execute("""SELECT COUNT(*) FROM russian_memes WHERE added_by=? AND date(created_at) = date('now')""", (user_id,))
+    user_memes_today = cursor.fetchone()
+    cursor.close()
+    connection.close()
+    return user_memes_today[0]
