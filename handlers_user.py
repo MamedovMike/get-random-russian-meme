@@ -32,8 +32,8 @@ def sendMeme(message):
     if(user_memes_today >= 20):
         bot.send_message(message.chat.id, 'Превышен лимит отправки Мемов. На одного человека - 20 мемов(пока временно)')
     else:
-            was_added = send_meme_to_from_db(img_file_id, user_id)
-            if was_added:
-                bot.send_message(message.chat.id, 'Мем успешно сохранён. Спасибо за вклад в развитие культуры!)')
-            else:
-                bot.send_message(message.chat.id, 'Вы отправили один и тот же Мем дважды. Пожалуйста пришлите другой')
+        was_added = send_meme_to_from_db(img_file_id, user_id)
+        if was_added:
+            bot.send_message(message.chat.id, 'Мем успешно сохранён. Спасибо за вклад в развитие культуры!)')
+        else:
+            bot.send_message(message.chat.id, 'Вы отправили один и тот же Мем дважды. Пожалуйста пришлите другой')
