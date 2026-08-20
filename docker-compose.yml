@@ -1,0 +1,8 @@
+services:
+  bot:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./russian_memes.db:/app/russian_memes.db
+    restart: unless-stopped
